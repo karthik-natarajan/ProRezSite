@@ -3510,7 +3510,7 @@ body {
  * 11.2 - Section About
  */
 .section-about {
-    padding-top: 40px;
+    padding-top: 20px;
     position: relative;
 }
 
@@ -6098,7 +6098,7 @@ body {
 }
 
 .footer-social .social li a:hover .rsicon {
-    color: #6e6e6e;
+    color: #fcfcf8;
 }
 
 @media (max-width: 767px) {
