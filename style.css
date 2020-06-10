@@ -6084,6 +6084,36 @@ body {
 }
 
 /**
+ * 13.1 - Privacy Policy Page
+ */
+
+.header-has-img .page-privacy {
+    margin-top: 170px;
+}
+
+.page-privacy {
+    color: #fcfafa;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    padding: 20px 0;
+}
+
+.page-privacy .btn {
+    color: #fcfafa !important;
+    width: 100%;
+    max-width: 256px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+    .page-privacy {
+        font-size: 25px;
+    }
+}
+
+/**
  * 14.0 - Footer
  */
 .footer-social {
