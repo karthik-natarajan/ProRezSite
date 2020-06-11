@@ -643,7 +643,7 @@
                             <div class="section-box contact-form">
                                 <h3>Feel free to contact me</h3>
             
-                                <form class="rsForm" action="php/mailsender.php" method="post">
+                                <form class="rsForm" action="https://pi9txtaukj.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer" method="POST">
                                     <div class="input-field">
                                         <label>Name</label>
                                         <input type="text" name="rsName" value="">
@@ -677,6 +677,7 @@
                                         <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="Send">
                                     </span>
                                 </form>
+                                <p id="js-form-response"></p>
                             </div>
                         </div>
             

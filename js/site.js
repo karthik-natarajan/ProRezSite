@@ -785,6 +785,9 @@
         });
 
         /** Contact Form */
+        const form = document.querySelector('form');
+        const formResponse = document.querySelector('js-form-response');
+
         $('.rsFormSubmit').on('click', function (e) {
             var rsForm = $(this).closest('.rsForm');
 			var rsFormErrors = false;
@@ -796,6 +799,7 @@
             var rsFormMessage = rsForm.find("[name='rsMessage']");		
             var rsFormResponce = rsForm.find('.rsFormResponce');			
             var rsFormPrivacy = rsForm.find("[name='rsPivacyPolicy']");
+
 
 			// Button ripple effect
 			ripple($(this).parent(), e.pageX, e.pageY);
@@ -823,7 +827,21 @@
                 rsFormErrors = true;
                 rsFormMessage.parent().addClass('error');
             }
-									
+            
+            // Prepare data to send
+            const data = {};
+            const formElements = Array.from(form);
+            formElements.map(input => (data[input.name] = input.value));
+
+            // Log what our lambda function will receive
+            console.log(JSON.stringify(data));
+
+            // Construct an HTTP request
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action, true);
+            xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
 			if(rsFormErrors) {
 				// if has errors - do nothing
 				return false;
@@ -833,23 +851,25 @@
 					return true;
 				} else {
 					// if no captcha - make ajax request
-					$.post( rsFormAction,
-						rsForm.serialize(),
-						function (response) {
-							var data = jQuery.parseJSON( response );
-							if(data){								
-								rsForm.append('<div class="rsFormResponce"><strong>Congratulation!</strong><br>Your email was sent successfully!</div>');
-							} else {
-								rsForm.append('<div class="rsFormResponce"><strong>OOPS!</strong> Something went wrong.<br>Please try again.</div>');
-							}							
-						}
-					);
+                    // Send the collected data as JSON
+                    xhr.send(JSON.stringify(data));
+
+                    // Callback function
+                    xhr.onloadend = response => {
+                        if (response.target.status === 200) {
+                            // The form submission was successful
+                            form.reset();
+                            formResponse.innerHTML = 'Thanks for the message. I’ll be in touch shortly.';
+                        } else {
+                            // The form submission failed
+                            formResponse.innerHTML = 'Something went wrong';
+                            console.error(JSON.parse(response.target.response).message);
+                        }
+                    };
 					return false;
 				}
 			}					                         
         });
-
-		
     });    
 
 

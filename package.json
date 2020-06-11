@@ -1,0 +1,12 @@
+{
+  "name": "static-site-mailer",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/karthik-natarajan/ProRezSite.git",
+  "author": "Karthik Natarajan",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.694.0",
+    "serverless": "^1.72.0"
+  }
+}
