@@ -787,12 +787,10 @@
         /** Contact Form */
         const form = document.querySelector('form');
         const formResponse = document.getElementById('js-form-response');
-        const rsFormPrivacyError = document.getElementById('rsPrivacyPolicyError');
 
         $('.rsFormSubmit').on('click', function (e) {
             var rsForm = $(this).closest('.rsForm');
 			var rsFormErrors = false;
-			var rsFormAction = rsForm.attr('action');
 			var rsFormCaptcha = rsForm.data('captcha');		
 			var rsFormFields = rsForm.find('.input-field');		           	
             var rsFormName = rsForm.find("[name='rsName']");						
@@ -815,11 +813,10 @@
             if(!rsFormPrivacy.prop('checked')) {
                 rsFormErrors = true;
                 rsFormPrivacy.parent().addClass('error');
-                rsFormPrivacyError.setAttribute("style", "color:#c00");
-                rsFormPrivacyError.setAttribute("font-size", "40px");
-                rsFormPrivacyError.innerHTML = 'Please check the Privacy Policy checkbox to continue';
+            }else{
+                rsFormPrivacy.parent().removeClass('error');
             }
-			
+
 			if(!rsFormEmail.val() || !isValidEmail(rsFormEmail.val())) {
                 rsFormErrors = true;
                 rsFormEmail.parent().addClass('error');
