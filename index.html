@@ -642,6 +642,7 @@
                         <div class="col-sm-6">
                             <div class="section-box contact-form">
                                 <h3>Feel free to contact me</h3>
+                                <p id="js-form-response" style="color:#ffde03"></p>
             
                                 <form class="rsForm" action="https://pi9txtaukj.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer" method="POST">
                                     <div class="input-field">
@@ -669,15 +670,17 @@
                                     </div>
 									
 									<div class="check-field">
-										<input type="checkbox" name="rsPivacyPolicy" id="rsPivacyPolicy">
-										<label for="rsPivacyPolicy">I have read the <a href="PrivacyPolicy.html"></ahref>Privacy Policy</a> note.</label>
+										<input type="checkbox" name="rsPrivacyPolicy" id="rsPrivacyPolicy">
+										<label for="rsPrivacyPolicy">I have read the <a href="PrivacyPolicy.html">Privacy Policy</a> note.</label>
 									</div>
-            
+                                    
+                                    <p id="rsPrivacyPolicyError"></p>
+
                                     <span class="btn-outer btn-primary-outer ripple">
                                         <input class="rsFormSubmit btn btn-lg btn-primary" type="submit" value="Send">
                                     </span>
                                 </form>
-                                <p id="js-form-response"></p>
+                                
                             </div>
                         </div>
             

@@ -786,7 +786,8 @@
 
         /** Contact Form */
         const form = document.querySelector('form');
-        const formResponse = document.querySelector('js-form-response');
+        const formResponse = document.getElementById('js-form-response');
+        const rsFormPrivacyError = document.getElementById('rsPrivacyPolicyError');
 
         $('.rsFormSubmit').on('click', function (e) {
             var rsForm = $(this).closest('.rsForm');
@@ -796,10 +797,8 @@
 			var rsFormFields = rsForm.find('.input-field');		           	
             var rsFormName = rsForm.find("[name='rsName']");						
             var rsFormEmail = rsForm.find("[name='rsEmail']");
-            var rsFormMessage = rsForm.find("[name='rsMessage']");		
-            var rsFormResponce = rsForm.find('.rsFormResponce');			
-            var rsFormPrivacy = rsForm.find("[name='rsPivacyPolicy']");
-
+            var rsFormMessage = rsForm.find("[name='rsMessage']");				
+            var rsFormPrivacy = rsForm.find("[name='rsPrivacyPolicy']");
 
 			// Button ripple effect
 			ripple($(this).parent(), e.pageX, e.pageY);
@@ -816,6 +815,9 @@
             if(!rsFormPrivacy.prop('checked')) {
                 rsFormErrors = true;
                 rsFormPrivacy.parent().addClass('error');
+                rsFormPrivacyError.setAttribute("style", "color:#c00");
+                rsFormPrivacyError.setAttribute("font-size", "40px");
+                rsFormPrivacyError.innerHTML = 'Please check the Privacy Policy checkbox to continue';
             }
 			
 			if(!rsFormEmail.val() || !isValidEmail(rsFormEmail.val())) {
@@ -862,7 +864,9 @@
                             formResponse.innerHTML = 'Thanks for the message. I’ll be in touch shortly.';
                         } else {
                             // The form submission failed
-                            formResponse.innerHTML = 'Something went wrong';
+                            formResponse.setAttribute("style", "color:#c00");
+                            formResponse.setAttribute("font-size", "40px");
+                            formResponse.innerHTML = 'Something went wrong! Please try again later';
                             console.error(JSON.parse(response.target.response).message);
                         }
                     };
