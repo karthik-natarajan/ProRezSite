@@ -6242,18 +6242,16 @@ body {
 }
 
 .theme-skin-dark .btn-scroll-top {
-    border: 1px solid #2b2e35;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffde03;
     background-color: rgba(0, 0, 0, 0.02);
 }
 
 .theme-skin-dark .btn-scroll-top:hover {
-    background-color: #2e3035;
+    background-color: #494a4e;
 }
 
 .theme-skin-dark .btn-scroll-top .rsicon {
-    color: #2b2e35;
-    color: rgba(0, 0, 0, 0.2);
+    color:#fff;
 }
 
 .theme-skin-dark .rs-icons-list li {
@@ -6498,7 +6496,7 @@ body {
 }
 
 .theme-skin-dark .ref-box .person-title {
-    color: #525458;
+    color: #ffde03;
 }
 
 .theme-skin-dark .calendar-busy .calendar-nav .rsicon {
@@ -6605,7 +6603,7 @@ body {
 }
 
 .theme-skin-dark .footer-social .social li a .rsicon {
-    color: #1c1c1f;
+    color: #ffde03;
 }
 
 /**
