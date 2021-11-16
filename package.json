@@ -6,7 +6,7 @@
   "author": "Karthik Natarajan",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.694.0",
+    "aws-sdk": "^2.814.0",
     "serverless": "^1.72.0"
   }
 }
