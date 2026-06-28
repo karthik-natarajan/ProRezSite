@@ -11,6 +11,16 @@
 #
 # Happy Coding!
 
+  mapsConfig:
+    handler: handler.mapsConfig
+    environment:
+      MAPS_API_KEY: ${env:MAPS_API_KEY}  # set in AWS Lambda env vars
+    events:
+      - http:
+          method: get
+          path: maps-config
+          cors: false  # handle manually above to restrict origin
+
 service: static-site-mailer
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
